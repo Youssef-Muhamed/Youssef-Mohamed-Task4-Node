@@ -1,0 +1,61 @@
+{{>header}}
+{{>nav}}
+<section class="my-5 container">
+    <form method="post">
+        {{#if message}}
+        <div class="alert alert-danger">
+            {{message}}
+            </div>
+        
+        {{else if messageSuc}}
+        <div class="alert alert-success">
+            {{messageSuc}}
+            </div>
+        {{/if}}
+        <div class="mb-3">
+            <input class="form-control" placeholder="Enter Operation" name="op">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Value" name="value">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add Operation</button>
+        </div>
+
+    </form>    
+</section>
+<section class="my-5 container">
+    <div class="row mb-3 justifiy-content-end">
+        <a href="/" class="btn btn-primary col-2">Home</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+              
+                <th>Operation</th>
+                <th>Value</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+               {{#if isEmpty}}
+                <div class="alert alert-danger">
+                    Invalid User Id
+                </div>
+                {{else}} 
+              {{#each user.op}}
+            <tr>
+                <td>{{this.type}}</td>
+                <td>{{this.value}}</td>
+                <td>{{this.theDate}}</td>
+            </tr>
+             {{/each}}
+            {{/if}}
+          
+           
+        </tbody>
+    </table>
+</section>
+{{>footer}}
+
+
